@@ -505,14 +505,7 @@ function calculate(){
     addResult("Total Addresses", totalAddresses.toLocaleString());
     addResult("Usable Hosts", usableHosts.toLocaleString());
     addResult("Binary Representation", ipToBinary(ip));
-}
-
-ipInput.value =
-localStorage.getItem("lastIP") || "";
-
-cidrInput.value =
-localStorage.getItem("lastCIDR") || "24";
-
+    
 const detail=
 getDetailedAddressType(ip);
 
@@ -563,6 +556,13 @@ addResult(
         usableHosts
     )
 );
+}
+
+ipInput.value =
+localStorage.getItem("lastIP") || "";
+
+cidrInput.value =
+localStorage.getItem("lastCIDR") || "24";
 
 function getDetailedAddressType(ip){
 
@@ -620,9 +620,11 @@ function getDetailedAddressType(ip){
             rfc:"RFC 2544"
         };
 
-    if(first===192 &&
-       second===0 &&
-       p[2]===2)
+    if(
+   (first===192 && second===0   && p[2]===2) ||
+   (first===198 && second===51  && p[2]===100) ||
+   (first===203 && second===0   && p[2]===113)
+)
         return {
             type:"Documentation",
             rfc:"RFC 5737"
