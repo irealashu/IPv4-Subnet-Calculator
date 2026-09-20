@@ -1,0 +1,6 @@
+{
+  "name": "IPv4 Subnet Calculator",
+  "description": "Professional SaaS-grade IPv4 network engineering suite featuring advanced CIDR subnetting, VLSM allocation, route summarization, overlap detection, device config generation, and CIDR reference matrix.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
